@@ -1,5 +1,5 @@
-Hello everyone.
-Here use this code and just paste your api key from the open ai website.
-Go to the lock shaped icon on the left and click on the "+".
-Then create your api key and paste it into the code in front of openai.api_key.
-Import all the libraries and enjoy.
+# FYP_Fast_API_M.sarim
+
+
+A water quality assesment app developed using the bunch of libraries. It identifies the quality of components required
+for better health of plants and also supports yours queries through chatbot.............
