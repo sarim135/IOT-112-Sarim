@@ -1,18 +1,4 @@
-//Write a C program to print 'Welcome to C programming!
-#include <stdio.h>
-
-int main() {
-    printf("Welcome to C Programming\n");
-    return 0;
-}
-
-
-
-
-
-
-
-//Write a C program that prompts the user for their name and prints a personalized greeting.
+//Write a C program to ask name from user and greet him
 #include <stdio.h>
 
 int main() {
@@ -24,6 +10,8 @@ int main() {
     
     // Print personalized greeting
     printf("Hello, %s! Welcome to the program.\n", name);
+    fflush(stdout);
+
     
     return 0;
 }
