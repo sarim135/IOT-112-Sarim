@@ -1,6 +1,13 @@
 import streamlit as st
 from PIL import Image
+import os
+import google.generativeai as genai
 
+
+# my api key
+genai.configure(api_key="AIzaSyBy2JlCz0jEx_GYj520ovIkfC3-VNZSSQw")
+
+model = genai.GenerativeModel('gemini-1.5-flash')
 # this will add the columns in the streamlit website.
 page1, page2 = st.columns(2)
 
@@ -14,7 +21,7 @@ with page2:
 
 #giving some info about me.
 st.title(" ")
-st.header("WHO AM I?")
+st.header("<>WHO AM I?")
 st.write("I am an undergraduate passed student who is learnig the programming. I've joined NLC (mandra) branch and currently doing the IOT course which involves many subjects and after this I'll be going to china for scholorship and to study there. I'm good at problem solving and I can do the best work in the programming.") 
 # Adding the image
 st.image("images/javapython.jpg")
@@ -32,23 +39,23 @@ st.title(" ")
 page1, page2 = st.columns(2)
 # heading 1
 with page1:    
-    st.subheader("User-Friendly Interface:")
-    st.write("Clean and intuitive design.")
-    st.write("Easy navigation and search functionality.")
-    st.write("Mobile-friendly layout.")
+    st.subheader("<>User-Friendly Interface:")
+    st.write("- Clean and intuitive design.")
+    st.write("- Easy navigation and search functionality.")
+    st.write("- Mobile-friendly layout.")
     # heading 2
-    st.subheader("Teaching skills showcase:")
-    st.write("Highlight profiles and achievements of skilled educators.")
-    st.write("Provide detailed descriptions of their expertise and teaching methodologies.")
+    st.subheader("<>Teaching skills showcase:")
+    st.write("- Highlight profiles and achievements of skilled educators.")
+    st.write("- Provide detailed descriptions of their expertise and teaching methodologies.")
     # heading 3
-    st.subheader("Online Gift Hampers:")
-    st.write("Offer a selection of customizable gift hampers.")
-    st.write("Include options for various occasions with personalized messages.")
+    st.subheader("<>Online Gift Hampers:")
+    st.write("- Offer a selection of customizable gift hampers.")
+    st.write("- Include options for various occasions with personalized messages.")
     # heading 4
-    st.subheader("Variety of Learning Resources:")
-    st.write("Articles, videos, podcasts, and eBooks.")
-    st.write("Quizzes and challenges to reinforce learning.")
-    st.write("Reference materials and cheat sheets.")
+    st.subheader("<>Variety of Learning Resources:")
+    st.write("- Articles, videos, podcasts, and eBooks.")
+    st.write("- Quizzes and challenges to reinforce learning.")
+    st.write("- Reference materials and cheat sheets.")
 
 with page2:
     st.image("images/features.png")
@@ -58,12 +65,12 @@ st.markdown("[nvidia link](https://www.nvidia.com/en-us/)")
 st.title(" ")
 
 # here's my youtube channel link.
-st.subheader("You can also visit my youtube channel")
+st.subheader("<>You can also visit my youtube channel")
 st.write(" ")
 st.write("Sorry but it's content is quite different but i hope you'll enjoy it. As i've made this before programming:broken_heart:")
 st.markdown("[My Youtube Channel:](https://youtube.com/@mobitech6622?si=02iZCHv1AtKW2fwu)")
 
-st.header("HERE THE SAMPLE")
+st.header("# HERE THE SAMPLE")
 # another columns
 page1, page2 = st.columns(2)
 with page1:
@@ -75,9 +82,29 @@ with page2:
 st.write(" ")
 st.image("images/talking.png")
 
+# making my skills slidbar.
+st.write(" ")
+st.header("# My skills")
+st.slider("programming",0,100,60)
+st.slider("teaching",0,100,50)
+st.slider("practical performing",0,100,60)
+
+# now for uploading file.
+st.file_uploader("upload the file")
 # Taking the inputs form the user.
 st.title("ANY QUESTIONS?")
-st.text_input("You can ask any questoins related to our website here:thumbsup:") 
-st.button("search")
+user_question = st.text_input("You can ask any questoins here:thumbsup:") 
+if st.button("search"):
+    prompt = user_question
+    response = model.generate_content(prompt)
+    st.write(response.text)
+
+# giving my contact number.
+st.write(" ")
+st.header("# MY CONTACT")
+st.write("You can contact me by clicking here on the email:heart:")
+st.write("muhammadsarim0864@gmail.com")
+st.subheader("<> MY GITHUB LINK ")
+st.markdown("[<My githublink>](https://github.com/sarim135/IOT-112-Sarim)")
 # underconstruction heading
 st.title("UNDER DEVELOPMENT:smile:")
