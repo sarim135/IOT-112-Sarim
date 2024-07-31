@@ -5,8 +5,8 @@ import google.generativeai as genai
 
 
 # my api key
-genai.configure(api_key="AIzaSyBy2JlCz0jEx_GYj520ovIkfC3-VNZSSQw")
-
+my_api_key = st.secrets["GOOGLE_API_KEY"]
+genai.configure(api_key=my_api_key)
 model = genai.GenerativeModel('gemini-1.5-flash')
 # this will add the columns in the streamlit website.
 page1, page2 = st.columns(2)
